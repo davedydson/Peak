@@ -1,0 +1,20 @@
+{
+  "name": "Peak — 6-Day Training",
+  "short_name": "Peak",
+  "description": "Personal workout, progress and meal tracker",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c0e11",
+  "theme_color": "#0c0e11",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Today's workout", "url": "./", "icons": [{ "src": "icon-192.png", "sizes": "192x192" }] }
+  ]
+}
