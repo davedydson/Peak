@@ -199,50 +199,64 @@ ul.rules b{color:var(--text)}
 /* ---------- Program ---------- */
 const REST={c:150,i:75,a:45};
 function E(id,name,sets,lo,hi,kind,o={}){return {id,name,sets,lo,hi,kind,bw:!!o.bw,unit:o.unit||"reps",note:o.note||""}}
+const SMITH="Log plates + your bar's start weight (e.g. 15 lb with 2-plate counterbalance)";
 const PROGRAM=[
- {id:"d1",short:"Push A",title:"Push — Heavy",focus:"Upper chest · shoulders · triceps",ex:[
-  E("incline-db-press","Incline dumbbell press",4,6,8,"c"),
-  E("flat-press","Flat DB / barbell press",3,8,8,"c"),
-  E("ohp","Seated overhead press",3,8,8,"c"),
-  E("lat-raise","Lateral raise",4,12,15,"i"),
-  E("oh-tri","Overhead triceps extension",3,10,12,"i"),
-  E("merach-crunch","MERACH crunch",3,15,15,"a",{bw:1}),
-  E("merach-twist","MERACH twist",2,10,10,"a",{bw:1,note:"Each side"})]},
+ {id:"d1",short:"Push A",title:"Push — Heavy",focus:"Chest · shoulders · triceps · Smith + cables",ex:[
+  E("smith-incline","Smith machine incline press",4,6,8,"c",{note:SMITH}),
+  E("flat-press","Flat dumbbell press",3,8,10,"c"),
+  E("ohp","Seated dumbbell shoulder press",3,8,10,"c",{note:"Bench upright at 80–90°"}),
+  E("lat-raise","Cable lateral raise",3,12,15,"i",{note:"Low pulley, D-handle, one arm at a time"}),
+  E("cable-fly","Cable crossover fly",3,12,15,"i",{note:"Pulleys at shoulder height"}),
+  E("pushdown","Rope pushdown",3,10,12,"i"),
+  E("merach-crunch","MERACH ab machine crunch",3,15,15,"a",{bw:1}),
+  E("rope-hiit","Jump rope finisher",1,5,5,"a",{bw:1,unit:"min",note:"30 s fast / 30 s easy × 5 rounds"})]},
  {id:"d2",short:"Pull A",title:"Pull — Heavy",focus:"Lats · upper back · biceps",ex:[
-  E("pullup","Pull-ups",4,6,8,"c",{bw:1,note:"Add weight once 4×8 is easy"}),
-  E("bb-row","Bent-over row",4,8,8,"c"),
-  E("db-row","One-arm dumbbell row",3,10,10,"i",{note:"Each side"}),
-  E("rear-fly","Rear-delt fly",3,15,15,"i"),
-  E("bb-curl","Barbell curl",3,8,10,"i"),
-  E("hammer","Hammer curl",3,12,12,"i")]},
- {id:"d3",short:"Legs A",title:"Legs + Core",focus:"Quads · hamstrings · abs",ex:[
-  E("squat","Squat / goblet squat",4,6,8,"c"),
-  E("rdl","Romanian deadlift",3,8,10,"c"),
-  E("bss","Bulgarian split squat",3,10,10,"c",{note:"Each leg"}),
-  E("calf","Calf raise",4,15,15,"i"),
-  E("merach-crunch","MERACH crunch",4,15,15,"a",{bw:1}),
-  E("hlr","Hanging leg raise",3,12,12,"a",{bw:1})]},
- {id:"d4",short:"Push B",title:"Push — Volume",focus:"Chest stretch · delt caps · triceps",ex:[
-  E("incline-fly","Incline fly",3,12,15,"i"),
-  E("arnold","Arnold press",3,10,12,"i"),
-  E("lat-drop","Lateral raise drop set",3,12,15,"i",{note:"Drop weight twice, no rest"}),
-  E("dips","Dips",3,8,15,"c",{bw:1,note:"Stop 1–2 reps short of failure"}),
-  E("pushdown","Rope / band pushdown",3,15,15,"i")]},
- {id:"d5",short:"Pull B",title:"Pull + Arms",focus:"Back width · rear delts · arms",ex:[
-  E("chinup","Chin-ups",3,10,10,"c",{bw:1}),
-  E("seated-row","Seated / band row",3,12,12,"i"),
-  E("facepull","Face pull",3,15,15,"i"),
-  E("incline-curl","Incline dumbbell curl",4,10,12,"i",{note:"Superset with skull crushers"}),
-  E("skull","Skull crusher",4,10,12,"i",{note:"Superset with incline curls"}),
-  E("merach-crunch","MERACH crunch",3,20,20,"a",{bw:1}),
+  E("pullup","Pull-ups",4,6,8,"c",{bw:1,note:"Use the band pegs for assistance if needed"}),
+  E("bb-row","Barbell bent-over row",4,6,8,"c"),
+  E("lat-pulldown","Lat pulldown",3,10,12,"i",{note:"Wide lat bar, pull to upper chest"}),
+  E("seated-row","Cable low row",3,10,12,"i",{note:"Footplate + short bar or D-handles"}),
+  E("facepull","Rope face pull",3,15,15,"i"),
+  E("bb-curl","EZ-bar curl",3,8,10,"i"),
+  E("hammer","Dumbbell hammer curl",2,12,12,"i"),
+  E("hlr","Hanging leg raise",3,10,12,"a",{bw:1,note:"From the pull-up bar"}),
+  E("bike-hiit","Bike sprints",1,10,10,"a",{bw:1,unit:"min",note:"MERACH bike: 20 s hard / 40 s easy × 10"})]},
+ {id:"d3",short:"Legs A",title:"Legs — Heavy",focus:"Quads · hamstrings · glutes · core",ex:[
+  E("squat","Smith machine squat",4,6,8,"c",{note:SMITH}),
+  E("rdl","Barbell Romanian deadlift",3,8,10,"c"),
+  E("bss","Bulgarian split squat (DB)",3,10,10,"c",{note:"Each leg, rear foot on the bench"}),
+  E("leg-ext","Leg extension",3,12,15,"i",{note:"Bench leg developer"}),
+  E("leg-curl","Lying leg curl",3,10,12,"i",{note:"Bench leg developer"}),
+  E("calf","Smith machine calf raise",4,12,15,"i",{note:"Toes on a plate for full stretch"}),
+  E("merach-crunch","MERACH ab machine crunch",3,15,15,"a",{bw:1}),
+  E("kb-swing","Kettlebell swings",4,15,15,"a",{note:"Hard hip snap, 45 s rest"})]},
+ {id:"d4",short:"Push B",title:"Push — Volume",focus:"Upper chest · delts · triceps",ex:[
+  E("incline-db-press","Incline dumbbell press",3,10,12,"c"),
+  E("landmine-press","Landmine press",3,10,10,"c",{note:"Each arm, kneeling or standing"}),
+  E("dips","Dips",3,8,15,"c",{bw:1,note:"Smith dip bars — stop 1–2 reps short of failure"}),
+  E("cable-fly-low","Low-to-high cable fly",3,12,15,"i",{note:"Upper chest"}),
+  E("lat-drop","Dumbbell lateral raise drop set",3,12,15,"i",{note:"Drop weight twice, no rest"}),
+  E("oh-tri","Overhead rope triceps extension",3,12,12,"i",{note:"Face away from the cable"}),
+  E("merach-twist","MERACH ab machine twist",2,10,10,"a",{bw:1,note:"Each side"}),
+  E("bike-hiit","Bike sprints",1,10,10,"a",{bw:1,unit:"min",note:"MERACH bike: 20 s hard / 40 s easy × 10"})]},
+ {id:"d5",short:"Pull B",title:"Pull + Arms",focus:"Back thickness · rear delts · arms",ex:[
+  E("chinup","Chin-ups",3,8,10,"c",{bw:1}),
+  E("tbar-row","Landmine T-bar row",3,8,10,"c",{note:"T-bar handle on the landmine"}),
+  E("db-row","One-arm dumbbell row",3,10,10,"i",{note:"Each side, hand on the bench"}),
+  E("rear-fly","Cable rear-delt fly",3,15,15,"i",{note:"Cross the cables, pull wide"}),
+  E("preacher","EZ-bar preacher curl",3,10,12,"i",{note:"Superset with skull crushers"}),
+  E("skull","EZ-bar skull crusher",3,10,12,"i",{note:"Superset with preacher curls"}),
+  E("incline-curl","Incline dumbbell curl",2,12,12,"i"),
+  E("cable-crunch","Kneeling rope cable crunch",3,15,15,"a"),
   E("plank","Plank",1,60,60,"a",{bw:1,unit:"sec"})]},
- {id:"d6",short:"Legs B",title:"Legs + Conditioning",focus:"Quads · glutes · engine",ex:[
-  E("front-squat","Front squat / leg press",3,10,12,"c"),
-  E("lunge","Walking lunge",3,12,12,"c",{note:"Each leg"}),
-  E("leg-curl","Leg curl / Nordic curl",3,10,10,"i"),
-  E("calf","Calf raise",3,20,20,"i"),
-  E("finisher","Finisher: swings / bike / sled",1,10,15,"a",{bw:1,unit:"min",note:"Intervals, e.g. 30s hard / 30s easy"})]}
+ {id:"d6",short:"Legs B",title:"Legs + Conditioning",focus:"Glutes · quads · fat-burning engine",ex:[
+  E("hip-thrust","Smith machine hip thrust",4,8,10,"c",{note:"Upper back on the bench, pad on the bar"}),
+  E("goblet-squat","Kettlebell goblet squat",3,12,12,"c"),
+  E("lunge","Dumbbell walking lunge",3,12,12,"c",{note:"Each leg"}),
+  E("leg-curl","Lying leg curl",3,12,12,"i",{note:"Bench leg developer"}),
+  E("calf","Smith machine calf raise",3,15,20,"i"),
+  E("circuit","Conditioning circuit",1,12,12,"a",{bw:1,unit:"min",note:"4 rounds: 40 s rope · 15 KB swings · 60 s bike"})]}
 ];
+const LEGACY={"incline-fly":"Incline fly","arnold":"Arnold press","finisher":"Finisher","front-squat":"Front squat / leg press"};
 const DAYMAP={1:"d1",2:"d2",3:"d3",4:"d4",5:"d5",6:"d6",0:null}; // Mon..Sat, Sun rest
 const byId=id=>PROGRAM.find(d=>d.id===id);
 
@@ -307,6 +321,8 @@ const PAT={
    cues:["Hips pressed into the pad","Curl heels toward your glutes","Lower slowly (Nordic: resist all the way down)"]},
  plank:{mode:"side",hl:"core",an:["foot",10,91],A:{t:103,th:-77,sh:-77,fa:90},B:{t:104.5},
    cues:["Elbows under shoulders","Squeeze glutes, ribs down","Straight line head to heels — keep breathing"]},
+ legExt:{mode:"side",hl:"legs",an:["hip",50,60],props:[["l",28,62.5,66,62.5,5],["l",34,63,34,91,3],["l",62,63,62,91,3]],A:{t:182,th:90,sh:4,ua:12,fa:12},B:{sh:88},
+   cues:["Sit tall, knees at the edge of the pad","Extend until legs are straight, squeeze quads","Lower slowly — 2–3 seconds"]},
  swing:{mode:"side",hl:"legs",eq:"kb",an:["foot",60,91],A:{t:125,th:30,sh:-8,ua:-15,fa:-25},B:{t:182,th:0,sh:0,ua:95,fa:95},
    cues:["Hike the bell back between your legs","Snap hips forward — arms just float","Or: 30 s hard / 30 s easy on the bike or sled"]}
 };
@@ -314,12 +330,21 @@ const FIGMAP={
  "incline-db-press":["inclinePress"],"flat-press":["flatPress"],"ohp":["ohp"],"lat-raise":["lateral"],"oh-tri":["ohTri"],
  "merach-crunch":["crunch"],"merach-twist":["twist"],"pullup":["pullup"],"bb-row":["bbRow"],"db-row":["dbRow"],"rear-fly":["rearFly"],
  "bb-curl":["curl","bb"],"hammer":["curl","db",["Palms face each other","Curl to shoulder height","No swinging"]],
- "squat":["squat"],"rdl":["hinge"],"bss":["lunge","db",["Rear foot up on a bench","Drop straight down, front shin near vertical","Push through the front heel"]],
- "calf":["calf"],"hlr":["hlr"],"incline-fly":["fly"],"arnold":["ohp","db",["Start palms facing you at chin height","Rotate palms out as you press","Reverse the rotation on the way down"]],
+ "squat":["squat","",["Bar on upper back, feet slightly forward","Sit down to parallel, chest up","Drive up through mid-foot"]],"rdl":["hinge"],"bss":["lunge","db",["Rear foot up on a bench","Drop straight down, front shin near vertical","Push through the front heel"]],
+ "calf":["calf","bb"],"hlr":["hlr"],"incline-fly":["fly"],"arnold":["ohp","db",["Start palms facing you at chin height","Rotate palms out as you press","Reverse the rotation on the way down"]],
  "lat-drop":["lateral","db",["12–15 reps, drop weight ~25%, repeat twice","No rest between drops","Same strict form throughout"]],
  "dips":["dips"],"pushdown":["pushdown"],"chinup":["pullup","",["Palms facing you, shoulder width","Drive elbows down and back","Lower all the way each rep"]],
  "seated-row":["seatedRow"],"facepull":["facepull"],"incline-curl":["inclineCurl"],"skull":["skull"],"plank":["plank"],
- "front-squat":["squat"],"lunge":["lunge"],"leg-curl":["legCurl"],"finisher":["swing"]
+ "lunge":["lunge"],"leg-curl":["legCurl"],"kb-swing":["swing"],
+ "smith-incline":["inclinePress","bb",["Smith bar, bench at 30–45°","Lower to upper chest, elbows ~45°","Press up and lock in at the top"]],
+ "lat-pulldown":["pullup","",["Grip the lat bar wider than shoulders","Pull to your upper chest, chest up","Control the bar back up"]],
+ "cable-fly":["fly","",["Step forward, slight bend in elbows","Bring handles together in front of your chest","Open slowly until you feel the stretch"]],
+ "cable-fly-low":["fly","",["Pulleys low, palms up","Sweep up and together to chin height","Squeeze upper chest at the top"]],
+ "landmine-press":["ohp","db",["Hold the bar end at shoulder height","Press up and forward","Brace your core, no leaning back"]],
+ "tbar-row":["bbRow","bb",["Straddle the landmine, T-bar handle","Hinge to ~45°, flat back","Row to your belly, squeeze shoulder blades"]],
+ "preacher":["curl","bb",["Armpits snug on the preacher pad","Curl up without lifting elbows","Lower to almost straight — don't bounce"]],
+ "cable-crunch":["crunch","",["Kneel facing the cable, rope by your ears","Curl ribs toward hips","Hips stay still — the abs do the work"]],
+ "leg-ext":["legExt"],"goblet-squat":["squat","kb",["Hold the kettlebell at your chest","Sit down between your heels","Elbows inside knees, drive up"]]
 };
 function prepPat(s){
   if(s._A)return;
@@ -592,7 +617,7 @@ $("#days").addEventListener("click",e=>{const b=e.target.closest("[data-day]");i
 /* ---------- Render: workout ---------- */
 function progressPct(){const d=byId(dayId);let tot=0,dn=0;d.ex.forEach(ex=>{const s=exDraft(ex);tot+=setsFor(ex);dn+=s.slice(0,setsFor(ex)).filter(x=>x.done).length});return tot?dn/tot:0}
 function renderWorkout(){
-  if(showRest){return `<div class="rest"><h2 class="cond">REST DAY</h2><p style="color:var(--muted)">Recovery is where the growth happens. Walk, stretch, eat your protein.</p><p style="color:var(--dim);font-size:13px">Missed a day? Tap it above to train it now.</p></div>`}
+  if(showRest){return `<div class="rest"><h2 class="cond">REST DAY</h2><p style="color:var(--muted)">Recovery is where the growth happens. Walk, stretch, eat your protein.</p><div class="card" style="text-align:left;margin-top:16px"><b>Optional fat-burn session</b><div style="color:var(--muted);font-size:13px;margin-top:4px">30–45 min easy ride on the MERACH bike — you can still talk in full sentences. Burns fat without eating into recovery.</div></div><p style="color:var(--dim);font-size:13px">Missed a day? Tap it above to train it now.</p></div>`}
   const d=byId(dayId);
   let h=`<div class="hero"><h1>${esc(d.title)}</h1><p>${esc(d.focus)}</p><div class="bar"><i id="pbar" style="width:${Math.round(progressPct()*100)}%"></i></div></div>`;
   if(isDeload())h+=`<div class="banner">Deload week: sets are cut in half. Keep the weights, leave the gym feeling fresh.</div>`;
@@ -626,7 +651,7 @@ function renderHistory(){
   if(!sessions.length)return `<div class="sec">History</div><div class="empty">No workouts logged yet.<br>Finish your first session and it shows up here.</div>`;
   return `<div class="sec">History · ${sessions.length} sessions</div>`+sessions.map(s=>{
     const d=byId(s.day)||{title:s.day};const nSets=Object.values(s.entries).reduce((a,b)=>a+b.length,0);
-    const det=Object.entries(s.entries).map(([k,v])=>{const ex=PROGRAM.flatMap(p=>p.ex).find(e=>e.id===k);return `<b>${esc(ex?ex.name:k)}</b>: ${v.map(x=>(x.w?x.w+"×":"")+x.r).join(", ")}`}).join("<br>");
+    const det=Object.entries(s.entries).map(([k,v])=>{const ex=PROGRAM.flatMap(p=>p.ex).find(e=>e.id===k);return `<b>${esc(ex?ex.name:(LEGACY[k]||k))}</b>: ${v.map(x=>(x.w?x.w+"×":"")+x.r).join(", ")}`}).join("<br>");
     return `<div class="card hist" data-sid="${esc(s.id)}"><div class="hd"><div><div class="ename">${esc(d.title)}</div>
       <div class="etarget">${new Date(s.date).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"})} · ${nSets} sets${vol(s)?" · "+vol(s).toLocaleString()+" "+unitLbl()+" volume":""}</div></div>
       <span style="color:var(--dim)">›</span></div>
@@ -781,7 +806,8 @@ function renderProgress(){
     <li><b>Progress:</b> hit the top of the rep range on every set → add weight next time (look for the green badge).</li>
     <li><b>Rest:</b> 2–3 min on compounds, 60–90 s on isolation. The timer starts when you tick a set.</li>
     <li><b>Deload:</b> every 6th week, sets drop by half automatically.</li>
-    <li><b>Recomp fuel:</b> ~0.8–1 g protein per lb bodyweight, calories at maintenance or slightly under.</li></ul></div>`;
+    <li><b>Belly fat:</b> you can't spot-reduce it — it comes off with a steady calorie deficit. Set Fuel to <b>Recomp</b>, hit protein daily, walk 8–10k steps, sleep 7 h+. The finishers burn extra; the ab work builds the muscle that shows once the fat drops.</li>
+    <li><b>Smith machine:</b> log total load = plates + bar start weight, and keep the counterbalance the same so your numbers stay comparable.</li></ul></div>`;
   const lb=S.settings.lastBackup;
   h+=`<div class="sec">Settings</div><div class="card">
     <div class="setting"><div><div class="nm" style="font-weight:600">Program start</div><div class="sub" style="font-size:12px;color:var(--muted)">Sets week number & deload timing</div></div><input type="date" id="startDate" value="${S.settings.start}"></div>
