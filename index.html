@@ -201,62 +201,59 @@ const REST={c:150,i:75,a:45};
 function E(id,name,sets,lo,hi,kind,o={}){return {id,name,sets,lo,hi,kind,bw:!!o.bw,unit:o.unit||"reps",note:o.note||""}}
 const SMITH="Log plates + your bar's start weight (e.g. 15 lb with 2-plate counterbalance)";
 const PROGRAM=[
- {id:"d1",short:"Push A",title:"Push — Heavy",focus:"Chest · shoulders · triceps · Smith + cables",ex:[
+ {id:"d1",short:"Push A",title:"Push A — Heavy",focus:"Chest · shoulders · triceps · abs",ex:[
   E("smith-incline","Smith machine incline press",4,6,8,"c",{note:SMITH}),
   E("flat-press","Flat dumbbell press",3,8,10,"c"),
   E("ohp","Seated dumbbell shoulder press",3,8,10,"c",{note:"Bench upright at 80–90°"}),
   E("lat-raise","Cable lateral raise",3,12,15,"i",{note:"Low pulley, D-handle, one arm at a time"}),
-  E("cable-fly","Cable crossover fly",3,12,15,"i",{note:"Pulleys at shoulder height"}),
   E("pushdown","Rope pushdown",3,10,12,"i"),
   E("merach-crunch","MERACH ab machine crunch",3,15,15,"a",{bw:1}),
   E("rope-hiit","Jump rope finisher",1,5,5,"a",{bw:1,unit:"min",note:"30 s fast / 30 s easy × 5 rounds"})]},
- {id:"d2",short:"Pull A",title:"Pull — Heavy",focus:"Lats · upper back · biceps",ex:[
+ {id:"d2",short:"Pull A",title:"Pull A + Quads — Heavy",focus:"Lats · back · biceps · quads",ex:[
   E("pullup","Pull-ups",4,6,8,"c",{bw:1,note:"Use the band pegs for assistance if needed"}),
   E("bb-row","Barbell bent-over row",4,6,8,"c"),
-  E("lat-pulldown","Lat pulldown",3,10,12,"i",{note:"Wide lat bar, pull to upper chest"}),
-  E("seated-row","Cable low row",3,10,12,"i",{note:"Footplate + short bar or D-handles"}),
-  E("facepull","Rope face pull",3,15,15,"i"),
+  E("squat","Smith machine squat",3,6,8,"c",{note:SMITH}),
+  E("leg-ext","Leg extension",3,12,15,"i",{note:"Bench leg developer"}),
   E("bb-curl","EZ-bar curl",3,8,10,"i"),
   E("hammer","Dumbbell hammer curl",2,12,12,"i"),
-  E("hlr","Hanging leg raise",3,10,12,"a",{bw:1,note:"From the pull-up bar"}),
   E("bike-hiit","Bike sprints",1,10,10,"a",{bw:1,unit:"min",note:"MERACH bike: 20 s hard / 40 s easy × 10"})]},
- {id:"d3",short:"Legs A",title:"Legs — Heavy",focus:"Quads · hamstrings · glutes · core",ex:[
-  E("squat","Smith machine squat",4,6,8,"c",{note:SMITH}),
-  E("rdl","Barbell Romanian deadlift",3,8,10,"c"),
-  E("bss","Bulgarian split squat (DB)",3,10,10,"c",{note:"Each leg, rear foot on the bench"}),
-  E("leg-ext","Leg extension",3,12,15,"i",{note:"Bench leg developer"}),
-  E("leg-curl","Lying leg curl",3,10,12,"i",{note:"Bench leg developer"}),
-  E("calf","Smith machine calf raise",4,12,15,"i",{note:"Toes on a plate for full stretch"}),
-  E("merach-crunch","MERACH ab machine crunch",3,15,15,"a",{bw:1}),
-  E("kb-swing","Kettlebell swings",4,15,15,"a",{note:"Hard hip snap, 45 s rest"})]},
- {id:"d4",short:"Push B",title:"Push — Volume",focus:"Upper chest · delts · triceps",ex:[
+ {id:"d3",short:"Push B",title:"Push B — Volume",focus:"Upper chest · delts · triceps · abs",ex:[
   E("incline-db-press","Incline dumbbell press",3,10,12,"c"),
-  E("landmine-press","Landmine press",3,10,10,"c",{note:"Each arm, kneeling or standing"}),
   E("dips","Dips",3,8,15,"c",{bw:1,note:"Smith dip bars — stop 1–2 reps short of failure"}),
+  E("landmine-press","Landmine press",3,10,10,"c",{note:"Each arm, kneeling or standing"}),
   E("cable-fly-low","Low-to-high cable fly",3,12,15,"i",{note:"Upper chest"}),
   E("lat-drop","Dumbbell lateral raise drop set",3,12,15,"i",{note:"Drop weight twice, no rest"}),
   E("oh-tri","Overhead rope triceps extension",3,12,12,"i",{note:"Face away from the cable"}),
-  E("merach-twist","MERACH ab machine twist",2,10,10,"a",{bw:1,note:"Each side"}),
-  E("bike-hiit","Bike sprints",1,10,10,"a",{bw:1,unit:"min",note:"MERACH bike: 20 s hard / 40 s easy × 10"})]},
- {id:"d5",short:"Pull B",title:"Pull + Arms",focus:"Back thickness · rear delts · arms",ex:[
+  E("merach-twist","MERACH ab machine twist",3,10,10,"a",{bw:1,note:"Each side"}),
+  E("hlr","Hanging leg raise",3,10,12,"a",{bw:1,note:"From the pull-up bar"})]},
+ {id:"d4",short:"Pull B",title:"Pull B + Hamstrings",focus:"Back · lats · biceps · hamstrings",ex:[
   E("chinup","Chin-ups",3,8,10,"c",{bw:1}),
   E("tbar-row","Landmine T-bar row",3,8,10,"c",{note:"T-bar handle on the landmine"}),
-  E("db-row","One-arm dumbbell row",3,10,10,"i",{note:"Each side, hand on the bench"}),
+  E("rdl","Barbell Romanian deadlift",3,8,10,"c"),
+  E("leg-curl","Lying leg curl",3,10,12,"i",{note:"Bench leg developer"}),
+  E("preacher","EZ-bar preacher curl",3,10,12,"i"),
+  E("facepull","Rope face pull",3,15,15,"i"),
+  E("kb-swing","Kettlebell swings",4,15,15,"a",{note:"Hard hip snap, 45 s rest"})]},
+ {id:"d5",short:"Push C",title:"Push C — Pump",focus:"Chest · shoulders · triceps · abs",ex:[
+  E("flat-press-p","Flat dumbbell press (pump)",3,12,15,"i",{note:"Lighter than Monday, squeeze hard"}),
+  E("cable-fly","Cable crossover fly",3,12,15,"i",{note:"Pulleys at shoulder height"}),
+  E("arnold","Arnold press",3,10,12,"c"),
   E("rear-fly","Cable rear-delt fly",3,15,15,"i",{note:"Cross the cables, pull wide"}),
-  E("preacher","EZ-bar preacher curl",3,10,12,"i",{note:"Superset with skull crushers"}),
-  E("skull","EZ-bar skull crusher",3,10,12,"i",{note:"Superset with preacher curls"}),
-  E("incline-curl","Incline dumbbell curl",2,12,12,"i"),
-  E("cable-crunch","Kneeling rope cable crunch",3,15,15,"a"),
+  E("skull","EZ-bar skull crusher",3,10,12,"i"),
+  E("pushdown-p","Rope pushdown (burnout)",2,15,15,"i"),
+  E("merach-slow","MERACH ab machine crunch (slow)",3,12,12,"a",{bw:1,note:"3 s up, 3 s down"}),
   E("plank","Plank",1,60,60,"a",{bw:1,unit:"sec"})]},
- {id:"d6",short:"Legs B",title:"Legs + Conditioning",focus:"Glutes · quads · fat-burning engine",ex:[
-  E("hip-thrust","Smith machine hip thrust",4,8,10,"c",{note:"Upper back on the bench, pad on the bar"}),
+ {id:"d6",short:"Pull C",title:"Pull C + Glutes & Legs",focus:"Lats · back · biceps · legs",ex:[
+  E("lat-pulldown","Lat pulldown",3,10,12,"i",{note:"Wide lat bar, pull to upper chest"}),
+  E("seated-row","Cable low row",3,10,12,"i",{note:"Footplate + short bar or D-handles"}),
+  E("incline-curl","Incline dumbbell curl",3,12,12,"i"),
+  E("hip-thrust","Smith machine hip thrust",3,8,10,"c",{note:"Upper back on the bench, pad on the bar"}),
   E("goblet-squat","Kettlebell goblet squat",3,12,12,"c"),
   E("lunge","Dumbbell walking lunge",3,12,12,"c",{note:"Each leg"}),
-  E("leg-curl","Lying leg curl",3,12,12,"i",{note:"Bench leg developer"}),
-  E("calf","Smith machine calf raise",3,15,20,"i"),
+  E("calf","Smith machine calf raise",3,15,20,"i",{note:"Toes on a plate for full stretch"}),
   E("circuit","Conditioning circuit",1,12,12,"a",{bw:1,unit:"min",note:"4 rounds: 40 s rope · 15 KB swings · 60 s bike"})]}
 ];
-const LEGACY={"incline-fly":"Incline fly","arnold":"Arnold press","finisher":"Finisher","front-squat":"Front squat / leg press"};
+const LEGACY={"incline-fly":"Incline fly","arnold":"Arnold press","finisher":"Finisher","front-squat":"Front squat / leg press","bss":"Bulgarian split squat (DB)","db-row":"One-arm dumbbell row","cable-crunch":"Kneeling rope cable crunch"};
 const DAYMAP={1:"d1",2:"d2",3:"d3",4:"d4",5:"d5",6:"d6",0:null}; // Mon..Sat, Sun rest
 const byId=id=>PROGRAM.find(d=>d.id===id);
 
@@ -344,7 +341,7 @@ const FIGMAP={
  "tbar-row":["bbRow","bb",["Straddle the landmine, T-bar handle","Hinge to ~45°, flat back","Row to your belly, squeeze shoulder blades"]],
  "preacher":["curl","bb",["Armpits snug on the preacher pad","Curl up without lifting elbows","Lower to almost straight — don't bounce"]],
  "cable-crunch":["crunch","",["Kneel facing the cable, rope by your ears","Curl ribs toward hips","Hips stay still — the abs do the work"]],
- "leg-ext":["legExt"],"goblet-squat":["squat","kb",["Hold the kettlebell at your chest","Sit down between your heels","Elbows inside knees, drive up"]]
+ "flat-press-p":["flatPress"],"pushdown-p":["pushdown"],"merach-slow":["crunch"],"leg-ext":["legExt"],"goblet-squat":["squat","kb",["Hold the kettlebell at your chest","Sit down between your heels","Elbows inside knees, drive up"]]
 };
 function prepPat(s){
   if(s._A)return;

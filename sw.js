@@ -1,6 +1,6 @@
 // Peak service worker: makes the app installable and usable offline.
 // Bump VERSION whenever you upload a new index.html so phones pick it up.
-const VERSION = "peak-v2";
+const VERSION = "peak-v3";
 const SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./icon-maskable-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", e => {
